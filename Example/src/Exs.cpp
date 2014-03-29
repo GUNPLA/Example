@@ -6,27 +6,29 @@
  */
 
 #include<iostream>
-#include<stdio.h>
+#include<cmath>
 using namespace std;
 
 int main() {
-	int i, n;
-	char x[6];
+	int m, n, i, j;
 
-	for (i = 0; i < 6; i++) {
+	cin >> m >> n;
+	if (m <= 0 || n <= 0) {
+		cout << "Error" << endl;
+	} else {
 
-		if ((x[i] = getchar()) == '\n')
-			break;
+		i = m + n;
+		j = m * n;
+		m = (m >= n) ? m : n;
+		n = i - m;
+
+		for (; n != 0;) {
+			i = n;
+			n = m % n;
+			m = i;
+		}
+
+		cout << "GCD=" << m << endl;
+		cout << "LCM=" << (abs(j) / m) << endl;
 	}
-	if (i == 6 || i == 0)
-		cout << "error";
-	else {
-		cout << "i=" << i << endl;
-		for (n = 0; n < i; n++)
-			cout << x[n] << endl;
-		for (n = i - 1; n >= 0; n--)
-			cout << x[n];
-	}
-
-	return 0;
 }
