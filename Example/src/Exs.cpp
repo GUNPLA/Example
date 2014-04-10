@@ -1,27 +1,40 @@
 /*
  * Exs.cpp
  *
- *  Created on: 2014年3月21日
+ *  Created on: 2014年4月5日
  *      Author: MAITO
  */
 
 #include<iostream>
+#include<cmath>
 using namespace std;
 
 int main() {
-	int n;
-	int jiecheng(int a);
-	cin >> n;
+	int a, b, c, d;
+	int GCD(int x, int y);
+	int LCM(int x, int y);
 
-	if (n < 0)
-		cout << "No operation";
-	else
-		cout << n << "!=" << jiecheng(n) << endl;
+	cin >> a >> b;
+	c = GCD(a, b);
+	d = LCM(a, b);
+
+	cout << "GCD=" << c << ',' << "LCM=" << d << endl;
 
 	return 0;
 }
-int jiecheng(int a) {
-	int b;
-	a == 0 ? b = 1 : b = jiecheng(a - 1) * a;
-	return b;
+
+int GCD(int x, int y) {
+	int m, n;
+	m = fmax(x, y);
+	n = fmin(x, y);
+	do {
+		x = n;
+		n = m % n;
+		m = x;
+	} while (n != 0);
+	return m;
+}
+
+int LCM(int x, int y) {
+	return (fabs(x * y) / GCD(x, y));
 }
