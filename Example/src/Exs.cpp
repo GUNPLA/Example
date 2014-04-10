@@ -10,31 +10,30 @@
 using namespace std;
 
 int main() {
-	int a, b, c, d;
-	int GCD(int x, int y);
-	int LCM(int x, int y);
-
-	cin >> a >> b;
-	c = GCD(a, b);
-	d = LCM(a, b);
-
-	cout << "GCD=" << c << ',' << "LCM=" << d << endl;
-
+	int a, b, c, w;
+	void aa(int x, int y, int z);
+	void bb(int x, int y, int z);
+	void cc(int x, int y, int z);
+	cin >> a >> b >> c;
+	w = b * b - 4 * a * c;
+	if (a > 0)
+		if (w < 0)
+			aa(a, b, c);
+		else if (w == 0)
+			bb(a, b, c);
+		else
+			cc(a, b, c);
+	else
+		cout << "Not a Quadratic Equation" << endl;
 	return 0;
 }
-
-int GCD(int x, int y) {
-	int m, n;
-	m = fmax(x, y);
-	n = fmin(x, y);
-	do {
-		x = n;
-		n = m % n;
-		m = x;
-	} while (n != 0);
-	return m;
+void aa(int x, int y, int z) {
+	cout << "have no root" << endl;
 }
-
-int LCM(int x, int y) {
-	return (fabs(x * y) / GCD(x, y));
+void bb(int x, int y, int z) {
+	cout << "x=" << (-y / 2 / x) << endl;
+}
+void cc(int x, int y, int z) {
+	cout << "x1=" << ((-y - sqrt(y * y - 4 * x * z)) / (2 * x)) << ',' << "x2="
+			<< ((-y + sqrt(y * y - 4 * x * z)) / (2 * x)) << endl;
 }
