@@ -6,24 +6,24 @@
  */
 
 #include<iostream>
+#include<stdio.h>
+
+#define CHANGE 0
 
 using namespace std;
 
 int main() {
-	int a, b, c, x;
-	int fac(int n);
-	cin >> a >> b >> c;
-	x = fac(a) + fac(b) + fac(c);
-	cout << a << "!+" << b << "!+" << c << "!=" << x << endl;
-	return 0;
-}
-int fac(int n) {
-	int i, j;
-	if (n == 0)
-		return 1;
-	else {
-		for (i = 1, j = 1; i <= n; i++)
-			j = i * j;
-		return j;
+	char c;
+
+	while ((c = getchar()) != '\n') {
+#if CHANGE==1
+		if (c >= 'a' && c < 'z') {
+			c += 1;
+		} else if (c == 'z') {
+			c -= 25;
+		}
+#endif
+		cout << c;
 	}
+	return 0;
 }
