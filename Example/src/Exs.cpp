@@ -6,24 +6,22 @@
  */
 
 #include<iostream>
-#include<stdio.h>
-
-#define CHANGE 0
 
 using namespace std;
 
-int main() {
-	char c;
+int a, m;
 
-	while ((c = getchar()) != '\n') {
-#if CHANGE==1
-		if (c >= 'a' && c < 'z') {
-			c += 1;
-		} else if (c == 'z') {
-			c -= 25;
-		}
-#endif
-		cout << c;
-	}
+int main() {
+	int b, x;
+	double y;
+
+	extern double power();
+	b = 4;
+	cin >> a >> m;
+	x = a * b;
+	y = power();
+
+	cout << x << ',' << y << endl;
+
 	return 0;
 }
